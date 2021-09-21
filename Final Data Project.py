@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import os
 
 ##get current operating system
+from Tools.scripts.dutree import display
+
 print(os.getcwd())
 
 ##redirect to the working directory
@@ -78,7 +80,7 @@ df = pd.read_csv("travel.csv", index_col="CustomerID")
 print(df.head())
 
 ##Sorting the datafame from the index.
-# print(df.sort_index())
+print(df.sort_index())
 
 ##SORTING##
 
@@ -107,6 +109,8 @@ travel = pd.read_csv("travel.csv", na_values="NaN")
 print(travel_data.head(20))
 
 ##DROPPING VALUES##
+
+
 ##dropping rows that contain null values
 droprows = travel_data.dropna()
 print(travel_data.shape, droprows.shape)
@@ -159,22 +163,6 @@ df3
 
 print(df3)
 
-##LISTING
-Travellist = [i for i in ("CustomerID",'ProdTaken','Age','TypeofContact','CityTier',
-                    'DurationOfPitch','Occupation','Gender','NumberOfPersonVisiting',
-                    'NumberOfFollowups','ProductPitched','PreferredPropertyStar',
-                    'MaritalStatus', 'NumberOfTrips','Passport','PitchSatisfactionScore',
-                    'OwnCar','NumberOfChildrenVisiting','MonthlyIncome')
-
-            if i in "ProdTaken" "ProductPitched"'Passport''MonthlyIncome']
-
-print(Travellist)
-
-
-
-
-
-
 ##LISTS##
 
 ##List of all the headings of the columns
@@ -183,9 +171,9 @@ list1 = ["CustomerID" ,"ProdTaken","Age", "TypeofContact", "CityTier", "Duration
 "Designation", "MonthlyIncome"]
 print(list1)
 
-array1 = np.array(list1)
-print(type(array1))
-array1
+#array1 = np.array(list1)
+#print(type(array1))
+
 
 ##Lenght of the list
 print(len(list1))
@@ -210,11 +198,7 @@ print(list1)
 
 ##NUMPY##
 
-##Print out the Array of the Monthly Income
-x=np.array(df["MonthlyIncome"])
-print(x)
-
-##Array is the Monthly Income &
+##Array is the Monthly Income & Designation
 x=np.array(df["MonthlyIncome"])
 y=np.array(df.iloc[:, :19])
 print(x)
@@ -225,6 +209,15 @@ list1 = ["CustomerID" ,"ProdTaken","Age", "TypeofContact", "CityTier", "Duration
 "ProductPitched","PreferredPropertyStar", "MaritalStatus", "NumberOfTrips", "Passport", "PitchSatisfactionScore", "OwnCar", "NumberOfChildrenVisiting",
 "Occupation", "Gender",]
 print(type(list1))
+
+df = pd.read_csv("travel.csv")
+print(df)
+
+np_array = df.to_numpy()
+print(np.array)
+
+print(df[["Age", "MonthlyIncome"]].to_numpy())
+
 
 ##Print type array ie Numpy
 array1 = np.array(list1)
@@ -249,10 +242,9 @@ print(df[["Age","MonthlyIncome","Gender"]].to_numpy)
 
 ##FUNCTIONS - Reusable Functions##
 
+
 #Average/Mean of column
-
 print("Mean for column:", travel_data["MonthlyIncome"].mean())
-
 
 #Average of column column
 a= int(input("first age"))
